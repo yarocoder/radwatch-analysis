@@ -289,11 +289,8 @@ def NAA_table(candidates, energy, isotopes, fractions, uncertainty):
                                         sorted_info[i][2],
                                         sorted_info[i][3]])
 
-    table_headers = []
-    table_headers.append('Energy [keV]')
-    table_headers.append('Isotope')
-    table_headers.append('Mass Fraction')
-    table_headers.append('Fraction Unc.')
+    table_headers = ['Energy [keV]', 'Isotope', 'Mass Fraction',
+                     'Fraction Unc.']
 
     frame = pd.DataFrame(data, index=table_headers)
     frame = frame.T
@@ -315,10 +312,9 @@ def create_cache(candidates, energy, branching_ratios, isotopes, half_lives,
                                           mass_number[i],
                                           isotopic_abundance[i],
                                           cross_section[i]])
-    table_headers_e = []
-    table_headers_e.extend(['Energy [keV]', 'Isotope', 'Half-life [s]',
-                            'Branching Ratio', 'Mass Number',
-                            'Isotopic Abundance', 'Cross Section [b]'])
+    table_headers_e = ['Energy [keV]', 'Isotope', 'Half-life [s]',
+                       'Branching Ratio', 'Mass Number',
+                       'Isotopic Abundance', 'Cross Section [b]']
     frame_energy = pd.DataFrame(data_e, index=table_headers_e)
     frame_energy = frame_energy.T
     frame_energy.to_csv('NAA_Results_Energy.csv')
